@@ -1,0 +1,49 @@
+/****** BASE RESET ******/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+}
+
+li {
+  list-style-type: none;
+}
+
+$colors: (
+  bg: rgb(0, 0, 0)
+);
+
+@function color($colors-name) {
+  @return map-get($colors, $colors-name);
+}
+
+/****** FONTS ******/
+html {
+  font-family: Nunito, Verdana, cursive;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+.container {
+  height: 100vh;
+}
