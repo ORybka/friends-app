@@ -1,18 +1,17 @@
-const imageSrc = 'https://picsum.photos/200/300';
+const CARDS_NUMBER = 30;
+const requests = [fetch('https://randomuser.me/api/?results=30'), fetch('https://picsum.photos/v2/list?page=4&limit=30')];
 
-const usersUrl = 'https://randomuser.me/api/?results=30';
-fetch(usersUrl)
-  .then(handleErrors)
-  .then((response) => response.json())
-  .then(({ results }) => fillCardContainer(results))
-  .catch(displayErrorMessage);
-
-const urlPhoto = 'https://picsum.photos/v2/list?page=2&limit=30';
-fetch(urlPhoto)
-  .then(handleErrors)
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch(displayErrorMessage);
+Promise.all(requests)
+  .then((responses) => {
+    responses.forEach(() => handleErrors);
+    return responses;
+  })
+  .then((responses) => Promise.all(responses.map((response) => response.json())))
+  .then((data) => fillCardContainer(data[1], data[0].results))
+  // .catch(displayErrorMessage);
+  .catch(function (err) {
+    console.log('Fetch Error :-S', err);
+  });
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -27,20 +26,30 @@ function displayErrorMessage() {
 
 const cardsContainer = document.querySelector('.users-container');
 
-function fillCardContainer(userData) {
+document.addEventListener('DOMContentLoaded', () => {
+  function fillCardContainer(url, userData) {
+    let userCard;
+    for (let i = 0; i <= CARDS_NUMBER; i++) {
+      userCard = createCard(url[i].download_url, userData[i]);
+      cardsContainer.appendChild(userCard);
+    }
+  }
+});
+
+function fillCardContainer(url, userData) {
   let userCard;
-  userData.forEach((card) => {
-    userCard = createCard(card);
+  for (let i = 0; i <= CARDS_NUMBER; i++) {
+    userCard = createCard(url[i].download_url, userData[i]);
     cardsContainer.appendChild(userCard);
-  });
+  }
 }
 
-function createCard({ picture, name, dob, email, phone }) {
+function createCard(url, { picture, name, dob, email, phone }) {
   const card = document.createElement('div');
   card.className = 'user-card';
   card.innerHTML = `
     <div class="card-image-container">
-      <img class="card-image" src="${imageSrc}" alt="card-image" >
+      <img class="card-image" src="${url}" alt="card-image" >
     </div>
     <div class="user-image-container">
       <img class="user-image" src="${picture.large}" alt="user-image" >
@@ -57,3 +66,4 @@ function createCard({ picture, name, dob, email, phone }) {
 
 // icons for email, phone, map (location)
 // male/female color of card
+// preloader
