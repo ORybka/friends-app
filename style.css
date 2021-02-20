@@ -11,14 +11,13 @@
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-}
-
-a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
 }
 
 li {
@@ -27,8 +26,9 @@ li {
 
 /****** FONTS ******/
 html {
-  font-family: Nunito, Verdana, cursive;
+  font-family: 'Advent Pro', cursive;
   font-size: 16px;
+  letter-spacing: 0.2rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -37,7 +37,145 @@ html {
   }
 }
 
-.container {
+body {
+  background-color: #93a1bf;
+}
+
+.col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.main-container {
   height: 100vh;
+  max-width: 82rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-title {
+  padding: 2rem 0;
+  font-family: 'Akaya Kanadaka', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 0.5rem;
+  color: #ad125b;
+}
+
+.filter-container {
+  width: 20%;
+  margin: 1rem;
+  text-align: left;
+}
+
+.users-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 80%;
+}
+
+.user-card {
+  position: relative;
+  height: 18rem;
+  width: 15rem;
+  margin: 1rem;
+  background-color: #ebe6e6;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
+}
+
+.user-card:hover {
+  -webkit-box-shadow: #ad125b 0px 5px 15px;
+          box-shadow: #ad125b 0px 5px 15px;
+}
+
+.card-image-container {
+  position: relative;
+  height: 45%;
+}
+
+.card-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: auto;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
+          clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
+  -webkit-filter: blur(0.1rem) grayscale(57%);
+          filter: blur(0.1rem) grayscale(57%);
+}
+
+.user-photo {
+  position: absolute;
+  top: 20%;
+  left: 32%;
+  height: 5.5rem;
+  width: 5.5rem;
+  border: 0.3rem solid #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-image: url(https://picsum.photos/200/300);
+  background-size: cover;
+  background-position: center;
+}
+
+.user-information {
+  position: relative;
+  height: 55%;
+  width: 100%;
+  margin-top: 2.3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-information p {
+  margin-bottom: 0.45rem;
+}
+
+.user-name {
+  margin-bottom: 0.5rem;
+}
+
+.user-age {
+  color: #5c5b5b;
+}
+
+.user-email,
+.user-phone {
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 0.2rem;
+}
+
+.user-email:hover,
+.user-phone:hover {
+  color: #ad125b;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */

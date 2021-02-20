@@ -10,14 +10,13 @@
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-}
-
-a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
 }
 
 li {
@@ -25,7 +24,9 @@ li {
 }
 
 $colors: (
-  bg: rgb(0, 0, 0)
+  background: #93a1bf,
+  card-background: #ebe6e6,
+  accent: #ad125b,
 );
 
 @function color($colors-name) {
@@ -34,8 +35,9 @@ $colors: (
 
 /****** FONTS ******/
 html {
-  font-family: Nunito, Verdana, cursive;
+  font-family: 'Advent Pro', cursive;
   font-size: 16px;
+  letter-spacing: 0.2rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -44,6 +46,122 @@ html {
   }
 }
 
-.container {
+body {
+  background-color: color(background);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-container {
   height: 100vh;
+  max-width: 82rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-title {
+  padding: 2rem 0;
+  font-family: 'Akaya Kanadaka', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 0.5rem;
+  color: color(accent);
+}
+
+.filter-container {
+  width: 20%;
+  margin: 1rem;
+  text-align: left;
+}
+
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.user-card {
+  position: relative;
+  height: 18rem;
+  width: 15rem;
+  margin: 1rem;
+  background-color: color(card-background);
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
+
+  &:hover {
+    box-shadow: color(accent) 0px 5px 15px;
+  }
+}
+
+.card-image-container {
+  position: relative;
+  height: 45%;
+}
+
+.card-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  margin: auto;
+  clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
+  filter: blur(0.1rem) grayscale(57%);
+}
+
+.user-photo {
+  position: absolute;
+  top: 20%;
+  left: 32%;
+  height: 5.5rem;
+  width: 5.5rem;
+  border: 0.3rem solid #fff;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-image: url(https://picsum.photos/200/300);
+  background-size: cover;
+  background-position: center;
+}
+
+.user-information {
+  position: relative;
+  height: 55%;
+  width: 100%;
+  margin-top: 2.3rem;
+  align-items: center;
+
+  p {
+    margin-bottom: 0.45rem;
+  }
+}
+
+.user-name {
+  margin-bottom: 0.5rem;
+}
+
+.user-age {
+  color: rgb(92, 91, 91);
+}
+
+.user-email,
+.user-phone {
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 0.2rem;
+
+  &:hover {
+    color: color(accent);
+    text-decoration: underline;
+  }
 }
