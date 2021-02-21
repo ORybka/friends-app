@@ -101,6 +101,12 @@ body {
   width: 80%;
 }
 
+@media screen and (max-width: 768px) {
+  .users-container {
+    justify-content: center;
+  }
+}
+
 .user-card {
   position: relative;
   height: 18rem;
@@ -207,6 +213,18 @@ body {
 .gender,
 .name {
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .sort-container {
+    width: 90%;
+  }
+
+  .age,
+  .gender,
+  .name {
+    justify-content: center;
+  }
 }
 
 .radio-input {
