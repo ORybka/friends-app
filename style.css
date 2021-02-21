@@ -362,6 +362,7 @@ body {
   font-family: 'Advent Pro', cursive;
   letter-spacing: 0.1rem;
   color: #ebe6e6;
+  font-weight: bold;
   outline: none;
   border: 1px solid transparent;
   border-radius: 3px;
@@ -372,5 +373,38 @@ body {
 
 .reset-input:hover, .reset-input:checked {
   background-color: #7c073e;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+  margin: 0.5rem auto 1rem;
+  opacity: 1;
+}
+
+.footer-info {
+  height: 100%;
+  width: 200%;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.github-link {
+  text-decoration: none;
+  color: #000;
+}
+
+.github-link:hover {
+  color: #ad125b;
 }
 /*# sourceMappingURL=style.css.map */
