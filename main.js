@@ -1,7 +1,6 @@
+let filteredUsers = '';
 const cardsContainer = document.querySelector('.users-container');
 const sortInput = document.querySelectorAll('.radio-input');
-let sortedUsers;
-
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
 });
@@ -33,6 +32,7 @@ const initApp = async () => {
 
 function fillCardContainer(data) {
   let userCard;
+  cardsContainer.innerHTML = '';
   data.forEach((card) => {
     addOption(card);
     userCard = createCard(card);
@@ -88,12 +88,16 @@ function addOption({ name }) {
   usersList.append(userElement);
 }
 
-const addEventListener = (usersData) => {
+const addEventListener = (data) => {
   sortInput.forEach((el) =>
-    el.addEventListener('input', () => {
-      cardsContainer.innerHTML = '';
-      sortUsers(usersData, el.name);
-      filterByGender(usersData, el.name);
+    el.addEventListener('click', () => {
+      if (el.name === 'byAgeDescending' || el.name === 'byAgeAscending' || el.name === 'byNameAZ' || el.name === 'byNameZA') {
+        sortUsers(data, el.name);
+        fillCardContainer(filteredUsers);
+      } else {
+        filterByGender(data, el.name);
+        fillCardContainer(filteredUsers);
+      }
     })
   );
 };
@@ -106,9 +110,8 @@ function sortUsers(data, name) {
     byNameZA: (a, b) => sortByName(b, a),
   };
   if (sortFunctions[name]) {
-    sortedUsers = data.sort(sortFunctions[name]);
-    fillCardContainer(sortedUsers);
-    filterByGender(sortedUsers, name);
+    filteredUsers = [...data].sort(sortFunctions[name]);
+    return filteredUsers;
   }
 }
 
@@ -129,21 +132,18 @@ function sortByName(a, b) {
 }
 
 function filterByGender(data, name) {
-  let filteredUsers;
+  filteredUsers = [...data];
   if (name === 'byGenderFemale') {
     filteredUsers = data.filter((user) => user.gender === 'female');
   } else if (name === 'byGenderMale') {
     filteredUsers = data.filter((user) => user.gender === 'male');
-  } else {
-    filteredUsers = data;
   }
-  fillCardContainer(filteredUsers);
+  return filteredUsers;
 }
 
 const resetUsers = (data) => {
   document.querySelector('.reset-button').addEventListener('click', (e) => {
     e.preventDefault();
-    cardsContainer.innerHTML = '';
     fillCardContainer(data);
   });
 };

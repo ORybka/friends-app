@@ -97,13 +97,8 @@ body {
 .users-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 80%;
-}
-
-@media screen and (max-width: 768px) {
-  .users-container {
-    justify-content: center;
-  }
 }
 
 .user-card {
