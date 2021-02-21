@@ -77,8 +77,27 @@ body {
 }
 
 .inner-main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .inner-main-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .sort-container {
@@ -178,6 +197,20 @@ body {
 .user-phone:hover {
   color: #ad125b;
   text-decoration: underline;
+}
+
+.main-search {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  height: 2rem;
+  padding-left: 0.5rem;
+  font-family: 'Advent Pro', cursive;
+  letter-spacing: 0.1rem;
+  outline: none;
+  border: 0px solid;
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .inner-sort-container {
