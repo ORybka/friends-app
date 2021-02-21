@@ -1,8 +1,13 @@
+let usersData;
 const usersUrl = 'https://randomuser.me/api/?results=30';
+const cardsContainer = document.querySelector('.users-container');
+
 fetch(usersUrl)
   .then(handleErrors)
   .then((response) => response.json())
-  .then(({ results }) => fillCardContainer(results))
+  .then((data) => (usersData = data.results))
+  .then(() => fillCardContainer())
+  .then(() => sortUsers(usersData))
   .catch(displayErrorMessage);
 
 function handleErrors(response) {
@@ -13,14 +18,12 @@ function handleErrors(response) {
 }
 
 function displayErrorMessage() {
-  console.log('Something went wrong...Please, reload the page!');
+  alert('Something went wrong...Please, reload the page!');
 }
 
-const cardsContainer = document.querySelector('.users-container');
-
-function fillCardContainer(userData) {
+function fillCardContainer() {
   let userCard;
-  userData.forEach((card) => {
+  usersData.forEach((card) => {
     addOption(card);
     userCard = createCard(card);
     cardsContainer.appendChild(userCard);
@@ -51,6 +54,7 @@ function createCard({ picture, name, dob, email, phone, gender }) {
   `;
   return card;
 }
+
 function addOption({ name }) {
   const usersList = document.querySelector('#users-list');
   const userName = `${name.first} ${name.last}`;
@@ -59,3 +63,13 @@ function addOption({ name }) {
   userElement.innerText = userName;
   usersList.append(userElement);
 }
+
+function sortUsers(data) {
+  console.log(data.sort((a, b) => sortByAge(b, a)));
+}
+
+function sortByAge(a, b) {
+  return a.email - b.email;
+}
+
+document.querySelector('.button-descending').addEventListener('click', sortUsers);
