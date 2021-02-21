@@ -21,6 +21,7 @@ const cardsContainer = document.querySelector('.users-container');
 function fillCardContainer(userData) {
   let userCard;
   userData.forEach((card) => {
+    addOption(card);
     userCard = createCard(card);
     cardsContainer.appendChild(userCard);
   });
@@ -49,4 +50,12 @@ function createCard({ picture, name, dob, email, phone, gender }) {
     </div>
   `;
   return card;
+}
+function addOption({ name }) {
+  const usersList = document.querySelector('#users-list');
+  const userName = `${name.first} ${name.last}`;
+  const userElement = document.createElement('option');
+  userElement.value = userName;
+  userElement.innerText = userName;
+  usersList.append(userElement);
 }
