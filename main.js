@@ -1,17 +1,9 @@
-const CARDS_NUMBER = 30;
-const requests = [fetch('https://randomuser.me/api/?results=30'), fetch('https://picsum.photos/v2/list?page=4&limit=30')];
-
-Promise.all(requests)
-  .then((responses) => {
-    responses.forEach(() => handleErrors);
-    return responses;
-  })
-  .then((responses) => Promise.all(responses.map((response) => response.json())))
-  .then((data) => fillCardContainer(data[1], data[0].results))
-  // .catch(displayErrorMessage);
-  .catch(function (err) {
-    console.log('Fetch Error :-S', err);
-  });
+const usersUrl = 'https://randomuser.me/api/?results=30';
+fetch(usersUrl)
+  .then(handleErrors)
+  .then((response) => response.json())
+  .then(({ results }) => fillCardContainer(results))
+  .catch(displayErrorMessage);
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -26,30 +18,25 @@ function displayErrorMessage() {
 
 const cardsContainer = document.querySelector('.users-container');
 
-document.addEventListener('DOMContentLoaded', () => {
-  function fillCardContainer(url, userData) {
-    let userCard;
-    for (let i = 0; i <= CARDS_NUMBER; i++) {
-      userCard = createCard(url[i].download_url, userData[i]);
-      cardsContainer.appendChild(userCard);
-    }
-  }
-});
-
-function fillCardContainer(url, userData) {
+function fillCardContainer(userData) {
   let userCard;
-  for (let i = 0; i <= CARDS_NUMBER; i++) {
-    userCard = createCard(url[i].download_url, userData[i]);
+  userData.forEach((card) => {
+    userCard = createCard(card);
     cardsContainer.appendChild(userCard);
-  }
+  });
 }
 
-function createCard(url, { picture, name, dob, email, phone }) {
+function createCard({ picture, name, dob, email, phone, gender }) {
   const card = document.createElement('div');
   card.className = 'user-card';
+  if (gender === 'female') {
+    card.style.backgroundColor = '#C0A9C2';
+  } else {
+    card.style.backgroundColor = '#CBF6CB';
+  }
   card.innerHTML = `
     <div class="card-image-container">
-      <img class="card-image" src="${url}" alt="card-image" >
+      <img class="card-image" src="https://picsum.photos/200/300?random=${dob.age}" alt="card-image" >
     </div>
     <div class="user-image-container">
       <img class="user-image" src="${picture.large}" alt="user-image" >
@@ -63,7 +50,3 @@ function createCard(url, { picture, name, dob, email, phone }) {
   `;
   return card;
 }
-
-// icons for email, phone, map (location)
-// male/female color of card
-// preloader
