@@ -112,6 +112,14 @@ body {
   &:hover {
     box-shadow: #ad125ab6 0px 5px 15px;
   }
+
+  &.male {
+    background-color: #aaddff7a;
+  }
+
+  &.female {
+    background-color: #ffc4fd6e;
+  }
 }
 
 .card-image-container {
@@ -264,6 +272,10 @@ body {
   background-size: cover;
   background-position: center;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.no-matches-title {
+  margin-top: 4rem;
 }
 
 @mixin setButton($items) {

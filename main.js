@@ -26,7 +26,8 @@ const fetchUsers = async () => {
 const initApp = async () => {
   const usersData = await fetchUsers();
   fillCardContainer(usersData);
-  addEventListener(usersData);
+  enableInputsToSort(usersData);
+  searchByUserName(usersData);
   resetUsers(usersData);
 };
 
@@ -34,7 +35,6 @@ function fillCardContainer(data) {
   let userCard;
   cardsContainer.innerHTML = '';
   data.forEach((card) => {
-    addOption(card);
     userCard = createCard(card);
     cardsContainer.appendChild(userCard);
   });
@@ -71,24 +71,10 @@ function createCard({ picture, name, dob, email, phone, gender, location }) {
 }
 
 function setCardBackground(card, gender) {
-  if (gender === 'female') {
-    card.style.backgroundColor = '#ffc4fd6e';
-  } else {
-    card.style.backgroundColor = '#aaddff7a';
-  }
-  return card;
+  return (card.className = `user-card ${gender}`);
 }
 
-function addOption({ name }) {
-  const usersList = document.querySelector('#users-list');
-  const userName = `${name.first} ${name.last}`;
-  const userElement = document.createElement('option');
-  userElement.value = userName;
-  userElement.innerText = userName;
-  usersList.append(userElement);
-}
-
-const addEventListener = (data) => {
+const enableInputsToSort = (data) => {
   sortInput.forEach((el) =>
     el.addEventListener('click', () => {
       if (el.name === 'byAgeDescending' || el.name === 'byAgeAscending' || el.name === 'byNameAZ' || el.name === 'byNameZA') {
@@ -140,6 +126,21 @@ function filterByGender(data, name) {
   }
   return filteredUsers;
 }
+
+const searchInput = document.querySelector('#user-names');
+const searchByUserName = (data) => {
+  filteredUsers = [...data];
+  searchInput.addEventListener('input', () => {
+    filteredUsers = data.filter((user) => user.name.first.toLowerCase().includes(searchInput.value.toLowerCase()) || user.name.last.toLowerCase().includes(searchInput.value.toLowerCase()));
+    if (filteredUsers.length === 0) {
+      document.querySelector('.users-container').innerHTML = `
+        <h2 class="no-matches-title">No matches...</h2>
+      `;
+    } else {
+      fillCardContainer(filteredUsers);
+    }
+  });
+};
 
 const resetUsers = (data) => {
   document.querySelector('.reset-button').addEventListener('click', (e) => {
