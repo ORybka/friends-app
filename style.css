@@ -33,12 +33,12 @@ html {
 
 @media screen and (max-width: 500px) {
   html {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
 body {
-  background-color: #d6d6d6;
+  background-color: #aadddd9e;
 }
 
 .col {
@@ -134,8 +134,8 @@ body {
 }
 
 .user-card:hover {
-  -webkit-box-shadow: #ad125b 0px 5px 15px;
-          box-shadow: #ad125b 0px 5px 15px;
+  -webkit-box-shadow: #ad125ab6 0px 5px 15px;
+          box-shadow: #ad125ab6 0px 5px 15px;
 }
 
 .card-image-container {
@@ -153,6 +153,8 @@ body {
   bottom: 0;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
   margin: auto;
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
           clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
@@ -195,16 +197,26 @@ body {
 }
 
 .user-email,
-.user-phone {
+.user-phone,
+.user-location {
+  width: 2.2rem;
+  height: 2.2rem;
+  padding-top: 0.25rem;
+  margin: 0.4rem;
   text-decoration: none;
   color: #000;
-  margin-bottom: 0.2rem;
+  border: 1px solid #000;
+  border-radius: 50%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .user-email:hover,
-.user-phone:hover {
-  color: #ad125b;
-  text-decoration: underline;
+.user-phone:hover,
+.user-location:hover {
+  background-color: #ad125b;
+  color: #ebe6e6;
+  border: 0.1rem solid transparent;
 }
 
 .main-search {
@@ -226,14 +238,13 @@ body {
 }
 
 .sort-title {
-  width: 5rem;
-  padding: 0.5rem 0;
-  margin: 0 1rem;
+  width: 100%;
+  margin: 0 0.5rem 1rem;
   text-align: left;
 }
 
 .radios-container {
-  width: 7rem;
+  width: 100%;
 }
 
 .age,
@@ -243,15 +254,28 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .inner-sort-container {
+    text-align: center;
+  }
   .sort-container {
     width: 90%;
+  }
+  .sort-title {
+    width: 50%;
+    text-align: center;
+  }
+  .radios-container {
+    width: 50%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .age,
   .gender,
   .name {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -276,50 +300,77 @@ body {
 }
 
 .button-descending {
-  background-image: url(assets/icons/descending.png);
+  background-image: url(icons/descending.png);
 }
 
 .button-descending:hover, .button-descending:focus {
-  background-image: url(assets/icons/descending_active.png);
+  background-image: url(icons/descending_active.png);
 }
 
 .button-ascending {
-  background-image: url(assets/icons/ascending.png);
+  background-image: url(icons/ascending.png);
 }
 
 .button-ascending:hover, .button-ascending:focus {
-  background-image: url(assets/icons/ascending_active.png);
+  background-image: url(icons/ascending_active.png);
+}
+
+.button-all {
+  background-image: url(icons/all.png);
+}
+
+.button-all:hover, .button-all:focus {
+  background-image: url(icons/all_active.png);
 }
 
 .button-male {
-  background-image: url(assets/icons/male.png);
+  background-image: url(icons/male.png);
 }
 
 .button-male:hover, .button-male:focus {
-  background-image: url(assets/icons/male_active.png);
+  background-image: url(icons/male_active.png);
 }
 
 .button-female {
-  background-image: url(assets/icons/female.png);
+  background-image: url(icons/female.png);
 }
 
 .button-female:hover, .button-female:focus {
-  background-image: url(assets/icons/female_active.png);
+  background-image: url(icons/female_active.png);
 }
 
 .button-AZ {
-  background-image: url(assets/icons/AZ.png);
+  background-image: url(icons/AZ.png);
 }
 
 .button-AZ:hover, .button-AZ:focus {
-  background-image: url(assets/icons/AZ_active.png);
+  background-image: url(icons/AZ_active.png);
 }
 
 .button-ZA {
-  background-image: url(assets/icons/ZA.png);
+  background-image: url(icons/ZA.png);
 }
 
 .button-ZA:hover, .button-ZA:focus {
-  background-image: url(assets/icons/ZA_active.png);
+  background-image: url(icons/ZA_active.png);
+}
+
+.reset-input {
+  width: 74%;
+  height: 2rem;
+  margin-top: 2rem;
+  font-family: 'Advent Pro', cursive;
+  letter-spacing: 0.1rem;
+  color: #ebe6e6;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background-color: #ad125b;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
+}
+
+.reset-input:hover, .reset-input:checked {
+  background-color: #7c073e;
 }
 /*# sourceMappingURL=style.css.map */
