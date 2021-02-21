@@ -24,7 +24,7 @@ li {
 }
 
 $colors: (
-  background: #93a1bf,
+  background: #d6d6d6,
   card-background: #ebe6e6,
   accent: #ad125b,
 );
@@ -62,7 +62,7 @@ body {
 
 .main-container {
   height: 100vh;
-  max-width: 82rem;
+  max-width: 70rem;
   margin: 0 auto;
   text-align: center;
 }
@@ -75,7 +75,12 @@ body {
   color: color(accent);
 }
 
-.filter-container {
+.inner-main-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sort-container {
   width: 20%;
   margin: 1rem;
   text-align: left;
@@ -92,7 +97,6 @@ body {
   height: 18rem;
   width: 16rem;
   margin: 1rem;
-  // background-color: color(card-background);
   border-radius: 0.3rem;
   box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
 
@@ -162,3 +166,58 @@ body {
     text-decoration: underline;
   }
 }
+
+.inner-sort-container {
+  margin-top: 2rem;
+}
+
+.sort-title {
+  width: 5rem;
+  padding: 0.5rem 0;
+  margin: 0 1rem;
+  text-align: left;
+}
+
+.radios-container {
+  width: 7rem;
+}
+
+.age,
+.gender,
+.name {
+  margin-bottom: 1rem;
+}
+
+.radio-input {
+  position: relative;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+}
+
+.sort-label {
+  position: relative;
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  margin: 0 0.5rem;
+  border-radius: 3px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+@mixin setButton($items) {
+  @each $item in $items {
+    .button-#{$item} {
+      background-image: url(assets/icons/#{$item}.png);
+
+      &:hover,
+      &:focus {
+        background-image: url(assets/icons/#{$item}_active.png);
+      }
+    }
+  }
+}
+
+@include setButton(('descending', 'ascending', 'male', 'female', 'AZ', 'ZA'));

@@ -11,13 +11,39 @@
 <body>
   <div class="main-container">
     <h1 class="main-title">Friends App</h1>
-    <div class="row">
-      <aside class="col filter-container">
+    <div class="row inner-main-container">
+      <aside class="col sort-container">
         <input type="search" name="user-names" id="user-names" list="users-list" placeholder="Search by name..." autocomplete="off">
         <datalist id="users-list"></datalist>
-        <div class="by-age">by age</div>
-        <div class="ny-name">by name</div>
-        <div class="be-sex">by sex</div>
+        <div class="inner-sort-container">
+          <div class="row age">
+            <p class="sort-title by-age">by age</p>
+            <div class="row radios-container">
+              <input class="radio-input" type="radio" name="sortAge" id="sort-descending"></input>
+              <label class="sort-label button-descending" for="sort-descending"></label>
+              <input class="radio-input" type="radio" name="sortAge" id="sort-ascending"></input>
+              <label class="sort-label button-ascending" for="sort-ascending"></label>
+            </div>
+          </div>
+          <div class="row gender">
+            <p class="sort-title by-gender">by gender</p>
+            <div class="row radios-container">
+              <input class="radio-input" type="radio" name="sortGender" id="sort-male"></input>
+              <label class="sort-label button-male" for="sort-male"></label>
+              <input class="radio-input" type="radio" name="sortGender" id="sort-female"></input>
+              <label class="sort-label button-female" for="sort-female"></label>
+            </div>
+          </div>
+          <div class="row name">
+            <p class="sort-title by-name">by name</p>
+            <div class="row radios-container">
+              <input class="radio-input" type="radio" name="sortAge" id="sort-AZ"></input>
+              <label class="sort-label button-AZ" for="sort-AZ"></label>
+              <input class="radio-input" type="radio" name="sortAge" id="sort-ZA"></input>
+              <label class="sort-label button-ZA" for="sort-ZA"></label>
+            </div>
+          </div>
+        </div>
       </aside>
       <main class="users-container"></main>
     </div>

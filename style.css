@@ -38,7 +38,7 @@ html {
 }
 
 body {
-  background-color: #93a1bf;
+  background-color: #d6d6d6;
 }
 
 .col {
@@ -63,7 +63,7 @@ body {
 
 .main-container {
   height: 100vh;
-  max-width: 82rem;
+  max-width: 70rem;
   margin: 0 auto;
   text-align: center;
 }
@@ -76,7 +76,12 @@ body {
   color: #ad125b;
 }
 
-.filter-container {
+.inner-main-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sort-container {
   width: 20%;
   margin: 1rem;
   text-align: left;
@@ -173,5 +178,94 @@ body {
 .user-phone:hover {
   color: #ad125b;
   text-decoration: underline;
+}
+
+.inner-sort-container {
+  margin-top: 2rem;
+}
+
+.sort-title {
+  width: 5rem;
+  padding: 0.5rem 0;
+  margin: 0 1rem;
+  text-align: left;
+}
+
+.radios-container {
+  width: 7rem;
+}
+
+.age,
+.gender,
+.name {
+  margin-bottom: 1rem;
+}
+
+.radio-input {
+  position: relative;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+}
+
+.sort-label {
+  position: relative;
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  margin: 0 0.5rem;
+  border-radius: 3px;
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.button-descending {
+  background-image: url(assets/icons/descending.png);
+}
+
+.button-descending:hover, .button-descending:focus {
+  background-image: url(assets/icons/descending_active.png);
+}
+
+.button-ascending {
+  background-image: url(assets/icons/ascending.png);
+}
+
+.button-ascending:hover, .button-ascending:focus {
+  background-image: url(assets/icons/ascending_active.png);
+}
+
+.button-male {
+  background-image: url(assets/icons/male.png);
+}
+
+.button-male:hover, .button-male:focus {
+  background-image: url(assets/icons/male_active.png);
+}
+
+.button-female {
+  background-image: url(assets/icons/female.png);
+}
+
+.button-female:hover, .button-female:focus {
+  background-image: url(assets/icons/female_active.png);
+}
+
+.button-AZ {
+  background-image: url(assets/icons/AZ.png);
+}
+
+.button-AZ:hover, .button-AZ:focus {
+  background-image: url(assets/icons/AZ_active.png);
+}
+
+.button-ZA {
+  background-image: url(assets/icons/ZA.png);
+}
+
+.button-ZA:hover, .button-ZA:focus {
+  background-image: url(assets/icons/ZA_active.png);
 }
 /*# sourceMappingURL=style.css.map */
