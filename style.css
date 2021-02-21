@@ -3,7 +3,7 @@
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * {
@@ -47,8 +47,8 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .row {
@@ -57,8 +57,8 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .main-container {
@@ -82,8 +82,8 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   width: 100%;
   margin: 0 auto;
 }
@@ -92,11 +92,11 @@ body {
   .inner-main-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 }
 
@@ -111,15 +111,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   width: 80%;
 }
 
 @media screen and (max-width: 768px) {
   .users-container {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 
@@ -130,12 +130,12 @@ body {
   margin: 1rem;
   border-radius: 0.3rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
-          box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
 }
 
 .user-card:hover {
   -webkit-box-shadow: #ad125ab6 0px 5px 15px;
-          box-shadow: #ad125ab6 0px 5px 15px;
+  box-shadow: #ad125ab6 0px 5px 15px;
 }
 
 .card-image-container {
@@ -152,14 +152,14 @@ body {
   right: 0;
   bottom: 0;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: bottom;
-     object-position: bottom;
+  object-position: bottom;
   margin: auto;
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
-          clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
   -webkit-filter: blur(0.1rem) grayscale(57%);
-          filter: blur(0.1rem) grayscale(57%);
+  filter: blur(0.1rem) grayscale(57%);
 }
 
 .user-image {
@@ -171,7 +171,7 @@ body {
   border: 0.3rem solid #fff;
   border-radius: 50%;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .user-information {
@@ -180,8 +180,8 @@ body {
   width: 100%;
   margin-top: 2.3rem;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .user-information p {
@@ -201,14 +201,14 @@ body {
 .user-location {
   width: 2.2rem;
   height: 2.2rem;
-  padding-top: 0.25rem;
+  padding-top: 0.45rem;
   margin: 0.4rem;
   text-decoration: none;
   color: #000;
   border: 1px solid #000;
   border-radius: 50%;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .user-email:hover,
@@ -219,9 +219,13 @@ body {
   border: 0.1rem solid transparent;
 }
 
+.material-icons {
+  font-size: 1.2rem;
+}
+
 .main-search {
   -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
   height: 2rem;
   padding-left: 0.5rem;
   font-family: 'Advent Pro', cursive;
@@ -230,7 +234,7 @@ body {
   border: 0px solid;
   border-radius: 3px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .inner-sort-container {
@@ -267,15 +271,15 @@ body {
   .radios-container {
     width: 50%;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
   .age,
   .gender,
   .name {
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 }
 
@@ -296,14 +300,15 @@ body {
   background-size: cover;
   background-position: center;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .button-descending {
   background-image: url(icons/descending.png);
 }
 
-.button-descending:hover, .button-descending:focus {
+.button-descending:hover,
+.button-descending:focus {
   background-image: url(icons/descending_active.png);
 }
 
@@ -311,7 +316,8 @@ body {
   background-image: url(icons/ascending.png);
 }
 
-.button-ascending:hover, .button-ascending:focus {
+.button-ascending:hover,
+.button-ascending:focus {
   background-image: url(icons/ascending_active.png);
 }
 
@@ -319,7 +325,8 @@ body {
   background-image: url(icons/all.png);
 }
 
-.button-all:hover, .button-all:focus {
+.button-all:hover,
+.button-all:focus {
   background-image: url(icons/all_active.png);
 }
 
@@ -327,7 +334,8 @@ body {
   background-image: url(icons/male.png);
 }
 
-.button-male:hover, .button-male:focus {
+.button-male:hover,
+.button-male:focus {
   background-image: url(icons/male_active.png);
 }
 
@@ -335,7 +343,8 @@ body {
   background-image: url(icons/female.png);
 }
 
-.button-female:hover, .button-female:focus {
+.button-female:hover,
+.button-female:focus {
   background-image: url(icons/female_active.png);
 }
 
@@ -343,7 +352,8 @@ body {
   background-image: url(icons/AZ.png);
 }
 
-.button-AZ:hover, .button-AZ:focus {
+.button-AZ:hover,
+.button-AZ:focus {
   background-image: url(icons/AZ_active.png);
 }
 
@@ -351,11 +361,12 @@ body {
   background-image: url(icons/ZA.png);
 }
 
-.button-ZA:hover, .button-ZA:focus {
+.button-ZA:hover,
+.button-ZA:focus {
   background-image: url(icons/ZA_active.png);
 }
 
-.reset-input {
+.reset-button {
   width: 74%;
   height: 2rem;
   margin-top: 2rem;
@@ -368,10 +379,11 @@ body {
   border-radius: 3px;
   background-color: #ad125b;
   -webkit-box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
-          box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.349) 0px 5px 15px;
 }
 
-.reset-input:hover, .reset-input:checked {
+.reset-button:hover,
+.reset-button:checked {
   background-color: #7c073e;
 }
 
@@ -380,11 +392,11 @@ footer {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 80%;
   margin: 0.5rem auto 1rem;
   opacity: 1;

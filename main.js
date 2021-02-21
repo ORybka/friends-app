@@ -28,11 +28,12 @@ const initApp = async () => {
   const usersData = await fetchUsers();
   fillCardContainer(usersData);
   addEventListener(usersData);
+  resetUsers(usersData);
 };
 
-function fillCardContainer(usersData) {
+function fillCardContainer(data) {
   let userCard;
-  usersData.forEach((card) => {
+  data.forEach((card) => {
     addOption(card);
     userCard = createCard(card);
     cardsContainer.appendChild(userCard);
@@ -92,6 +93,7 @@ const addEventListener = (usersData) => {
     el.addEventListener('input', () => {
       cardsContainer.innerHTML = '';
       sortUsers(usersData, el.name);
+      filterByGender(usersData, el.name);
     })
   );
 };
@@ -105,8 +107,8 @@ function sortUsers(data, name) {
   };
   if (sortFunctions[name]) {
     sortedUsers = data.sort(sortFunctions[name]);
-    console.log(sortedUsers);
     fillCardContainer(sortedUsers);
+    filterByGender(sortedUsers, name);
   }
 }
 
@@ -125,3 +127,23 @@ function sortByName(a, b) {
   }
   return 0;
 }
+
+function filterByGender(data, name) {
+  let filteredUsers;
+  if (name === 'byGenderFemale') {
+    filteredUsers = data.filter((user) => user.gender === 'female');
+  } else if (name === 'byGenderMale') {
+    filteredUsers = data.filter((user) => user.gender === 'male');
+  } else {
+    filteredUsers = data;
+  }
+  fillCardContainer(filteredUsers);
+}
+
+const resetUsers = (data) => {
+  document.querySelector('.reset-button').addEventListener('click', (e) => {
+    e.preventDefault();
+    cardsContainer.innerHTML = '';
+    fillCardContainer(data);
+  });
+};
