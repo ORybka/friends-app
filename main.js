@@ -40,7 +40,6 @@ function fillCardContainer(usersData) {
 }
 
 function createCard({ picture, name, dob, email, phone, gender, location }) {
-  // const locationURL
   const card = document.createElement('div');
   card.className = 'user-card';
   card.innerHTML = `
@@ -108,8 +107,6 @@ function sortUsers(data, name) {
     sortedUsers = data.sort(sortFunctions[name]);
     console.log(sortedUsers);
     fillCardContainer(sortedUsers);
-    // definesortedUsers(sex);
-    // renderFriends(sortedUsers);
   }
 }
 
