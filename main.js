@@ -1,4 +1,5 @@
 let filteredUsers = '';
+let sortedUsers = '';
 const cardsContainer = document.querySelector('.users-container');
 const sortInput = document.querySelectorAll('.radio-input');
 document.addEventListener('DOMContentLoaded', () => {
@@ -77,28 +78,26 @@ function setCardBackground(card, gender) {
 const enableInputsToSort = (data) => {
   sortInput.forEach((el) =>
     el.addEventListener('click', () => {
-      if (el.name === 'byAgeDescending' || el.name === 'byAgeAscending' || el.name === 'byNameAZ' || el.name === 'byNameZA') {
-        sortUsers(data, el.name);
-        fillCardContainer(filteredUsers);
-      } else {
-        filterByGender(data, el.name);
-        fillCardContainer(filteredUsers);
+      sortedUsers = sortUsers(data, el.id);
+      if (el.checked && el.classList.contains('gender')) {
+        filterByGender(sortedUsers, el.id);
       }
+      fillCardContainer(filteredUsers);
     })
   );
 };
 
-function sortUsers(data, name) {
+function sortUsers(data, id) {
   const sortFunctions = {
     byAgeAscending: (a, b) => sortByAge(a, b),
     byAgeDescending: (a, b) => sortByAge(b, a),
     byNameAZ: (a, b) => sortByName(a, b),
     byNameZA: (a, b) => sortByName(b, a),
   };
-  if (sortFunctions[name]) {
-    filteredUsers = [...data].sort(sortFunctions[name]);
-    return filteredUsers;
+  if (sortFunctions[id]) {
+    filteredUsers = [...data].sort(sortFunctions[id]);
   }
+  return filteredUsers;
 }
 
 function sortByAge(a, b) {
@@ -117,11 +116,11 @@ function sortByName(a, b) {
   return 0;
 }
 
-function filterByGender(data, name) {
+function filterByGender(data, id) {
   filteredUsers = [...data];
-  if (name === 'byGenderFemale') {
+  if (id === 'byGenderFemale') {
     filteredUsers = data.filter((user) => user.gender === 'female');
-  } else if (name === 'byGenderMale') {
+  } else if (id === 'byGenderMale') {
     filteredUsers = data.filter((user) => user.gender === 'male');
   }
   return filteredUsers;

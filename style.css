@@ -38,7 +38,7 @@ html {
 }
 
 body {
-  background-color: #aadddd9e;
+  background-color: #82b3c29e;
 }
 
 .col {
@@ -287,83 +287,30 @@ body {
 }
 
 .radio-input {
-  position: relative;
-  height: 0;
   width: 0;
-  cursor: pointer;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
 }
 
-.sort-label {
-  position: relative;
-  display: block;
-  height: 2rem;
-  width: 2rem;
+.form-label {
   margin: 0 0.5rem;
   border-radius: 3px;
-  background-size: cover;
-  background-position: center;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
           box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+.form-label:focus-within {
+  border: 1px solid #333232;
+}
+
+.form-label img {
+  height: 3rem;
+  width: 3rem;
+}
+
 .no-matches-title {
   margin-top: 4rem;
-}
-
-.button-descending {
-  background-image: url(icons/descending.png);
-}
-
-.button-descending:hover, .button-descending:focus {
-  background-image: url(icons/descending_active.png);
-}
-
-.button-ascending {
-  background-image: url(icons/ascending.png);
-}
-
-.button-ascending:hover, .button-ascending:focus {
-  background-image: url(icons/ascending_active.png);
-}
-
-.button-all {
-  background-image: url(icons/all.png);
-}
-
-.button-all:hover, .button-all:focus {
-  background-image: url(icons/all_active.png);
-}
-
-.button-male {
-  background-image: url(icons/male.png);
-}
-
-.button-male:hover, .button-male:focus {
-  background-image: url(icons/male_active.png);
-}
-
-.button-female {
-  background-image: url(icons/female.png);
-}
-
-.button-female:hover, .button-female:focus {
-  background-image: url(icons/female_active.png);
-}
-
-.button-AZ {
-  background-image: url(icons/AZ.png);
-}
-
-.button-AZ:hover, .button-AZ:focus {
-  background-image: url(icons/AZ_active.png);
-}
-
-.button-ZA {
-  background-image: url(icons/ZA.png);
-}
-
-.button-ZA:hover, .button-ZA:focus {
-  background-image: url(icons/ZA_active.png);
 }
 
 .reset-button {
