@@ -1,4 +1,4 @@
-let filteredUsers = '';
+let newUsers = '';
 let sortedUsers = '';
 const cardsContainer = document.querySelector('.users-container');
 const sortInput = document.querySelectorAll('.radio-input');
@@ -78,11 +78,12 @@ function setCardBackground(card, gender) {
 const enableInputsToSort = (data) => {
   sortInput.forEach((el) =>
     el.addEventListener('click', () => {
-      sortedUsers = sortUsers(data, el.id);
+      console.log(el.id);
+      newUsers = sortUsers(data, el.id);
       if (el.checked && el.classList.contains('gender')) {
-        filterByGender(sortedUsers, el.id);
+        newUsers = filterByGender(newUsers, el.id);
       }
-      fillCardContainer(filteredUsers);
+      fillCardContainer(newUsers);
     })
   );
 };
@@ -95,9 +96,9 @@ function sortUsers(data, id) {
     byNameZA: (a, b) => sortByName(b, a),
   };
   if (sortFunctions[id]) {
-    filteredUsers = [...data].sort(sortFunctions[id]);
+    sortedUsers = [...data].sort(sortFunctions[id]);
   }
-  return filteredUsers;
+  return sortedUsers;
 }
 
 function sortByAge(a, b) {
@@ -117,26 +118,26 @@ function sortByName(a, b) {
 }
 
 function filterByGender(data, id) {
-  filteredUsers = [...data];
   if (id === 'byGenderFemale') {
-    filteredUsers = data.filter((user) => user.gender === 'female');
-  } else if (id === 'byGenderMale') {
-    filteredUsers = data.filter((user) => user.gender === 'male');
+    return data.filter((user) => user.gender === 'female');
   }
-  return filteredUsers;
+  if (id === 'byGenderMale') {
+    return data.filter((user) => user.gender === 'male');
+  }
+  return data;
 }
 
 const searchInput = document.querySelector('#user-names');
 const searchByUserName = (data) => {
-  filteredUsers = [...data];
+  newUsers = [...data];
   searchInput.addEventListener('input', () => {
-    filteredUsers = data.filter((user) => user.name.first.toLowerCase().includes(searchInput.value.toLowerCase()) || user.name.last.toLowerCase().includes(searchInput.value.toLowerCase()));
-    if (filteredUsers.length === 0) {
+    newUsers = data.filter((user) => user.name.first.toLowerCase().includes(searchInput.value.toLowerCase()) || user.name.last.toLowerCase().includes(searchInput.value.toLowerCase()));
+    if (newUsers.length === 0) {
       document.querySelector('.users-container').innerHTML = `
         <h2 class="no-matches-title">No matches...</h2>
       `;
     } else {
-      fillCardContainer(filteredUsers);
+      fillCardContainer(newUsers);
     }
   });
 };

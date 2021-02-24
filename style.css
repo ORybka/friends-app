@@ -287,13 +287,15 @@ body {
 }
 
 .radio-input {
-  width: 0;
-  height: 0;
-  overflow: hidden;
+  width: 1rem;
+  height: 1rem;
+  display: none;
   margin: 0;
 }
 
 .form-label {
+  height: 3rem;
+  width: 3rem;
   margin: 0 0.5rem;
   border-radius: 3px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -304,9 +306,68 @@ body {
   border: 1px solid #333232;
 }
 
-.form-label img {
+.icon-image {
   height: 3rem;
   width: 3rem;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.icon-image.descending {
+  background-image: url(icons/descending.png);
+}
+
+.icon-image.descending:hover, .icon-image.descending:focus, .icon-image.descending:checked {
+  background-image: url(icons/descending_active.png);
+}
+
+.icon-image.ascending {
+  background-image: url(icons/ascending.png);
+}
+
+.icon-image.ascending:hover, .icon-image.ascending:focus, .icon-image.ascending:checked {
+  background-image: url(icons/ascending_active.png);
+}
+
+.icon-image.all {
+  background-image: url(icons/all.png);
+}
+
+.icon-image.all:hover, .icon-image.all:focus, .icon-image.all:checked {
+  background-image: url(icons/all_active.png);
+}
+
+.icon-image.male {
+  background-image: url(icons/male.png);
+}
+
+.icon-image.male:hover, .icon-image.male:focus, .icon-image.male:checked {
+  background-image: url(icons/male_active.png);
+}
+
+.icon-image.female {
+  background-image: url(icons/female.png);
+}
+
+.icon-image.female:hover, .icon-image.female:focus, .icon-image.female:checked {
+  background-image: url(icons/female_active.png);
+}
+
+.icon-image.AZ {
+  background-image: url(icons/AZ.png);
+}
+
+.icon-image.AZ:hover, .icon-image.AZ:focus, .icon-image.AZ:checked {
+  background-image: url(icons/AZ_active.png);
+}
+
+.icon-image.ZA {
+  background-image: url(icons/ZA.png);
+}
+
+.icon-image.ZA:hover, .icon-image.ZA:focus, .icon-image.ZA:checked {
+  background-image: url(icons/ZA_active.png);
 }
 
 .no-matches-title {

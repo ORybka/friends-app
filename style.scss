@@ -1,4 +1,3 @@
-/****** BASE RESET ******/
 *,
 *::before,
 *::after {
@@ -32,7 +31,6 @@ $colors: (
   @return map-get($colors, $colors-name);
 }
 
-/****** FONTS ******/
 html {
   font-family: 'Advent Pro', cursive;
   font-size: 16px;
@@ -256,37 +254,45 @@ body {
 }
 
 .radio-input {
-  // position: relative;
-  // height: 2rem;
-  // width: 2rem;
-  // background-color: transparent;
-  // cursor: pointer;
-  width: 0;
-  height: 0;
-  overflow: hidden;
+  width: 1rem;
+  height: 1rem;
+  display: none;
   margin: 0;
 }
 
 .form-label {
-  // position: relative;
-  // display: block;
-  // height: 2rem;
-  // width: 2rem;
+  height: 3rem;
+  width: 3rem;
   margin: 0 0.5rem;
   border-radius: 3px;
-  // background-size: cover;
-  // background-position: center;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
   &:focus-within {
     border: 1px solid #333232;
   }
+}
 
-  img {
-    height: 3rem;
-    width: 3rem;
+.icon-image {
+  height: 3rem;
+  width: 3rem;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+@mixin setButton($items) {
+  @each $item in $items {
+    .icon-image.#{$item} {
+      background-image: url(icons/#{$item}.png);
+      &:hover,
+      &:focus,
+      &:checked {
+        background-image: url(icons/#{$item}_active.png);
+      }
+    }
   }
 }
+@include setButton(('descending', 'ascending', 'all', 'male', 'female', 'AZ', 'ZA'));
 
 .no-matches-title {
   margin-top: 4rem;
