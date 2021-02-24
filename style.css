@@ -1,4 +1,3 @@
-/****** BASE RESET ******/
 *,
 *::before,
 *::after {
@@ -24,7 +23,6 @@ li {
   list-style-type: none;
 }
 
-/****** FONTS ******/
 html {
   font-family: 'Advent Pro', cursive;
   font-size: 16px;
@@ -230,6 +228,8 @@ body {
   -ms-grid-column-align: center;
       justify-self: center;
   height: 2rem;
+  width: 100%;
+  margin: 1rem 0;
   padding-left: 0.5rem;
   font-family: 'Advent Pro', cursive;
   letter-spacing: 0.1rem;

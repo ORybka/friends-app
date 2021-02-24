@@ -15,9 +15,9 @@
     <h1 class="main-title">Friends App</h1>
     <div class="inner-main-container">
       <aside class="col sort-container">
-        <input type="search" class="main-search" id="user-names" placeholder="Search by name..." autocomplete="off">
         <form action="#" class="inner-sort-container">
-          <div class="col age">
+          <input type="search" class="main-search" id="user-names" placeholder="Search by name..." autocomplete="off">
+          <div div class="col age">
             <p class="sort-title by-age">Sort by age</p>
             <div class="row radios-container">
               <label class="form-label button-descending">
@@ -27,23 +27,6 @@
               <label class="form-label button-ascending">
                 <input class="radio-input" type="radio" id="byAgeAscending">
                 <div class="icon-image descending"></div>
-              </label>
-            </div>
-          </div>
-          <div class="col gender">
-            <p class="sort-title by-gender">Sort by gender</p>
-            <div class="row radios-container">
-              <label class="form-label button-all">
-                <input class="radio-input gender" type="radio" id="byGenderAll">
-                <div class="icon-image all"></div>
-              </label>
-              <label class="form-label button-male">
-                <input class="radio-input gender" type="radio" id="byGenderMale">
-                <div class="icon-image male"></div>
-              </label>
-              <label class="form-label button-female">
-                <input class="radio-input gender" type="radio" id="byGenderFemale">
-                <div class="icon-image female"></div>
               </label>
             </div>
           </div>
@@ -59,7 +42,24 @@
                 <div class="icon-image ZA"></div>
               </label>
             </div>
-          </div>              
+          </div>
+          <div class="col gender">
+            <p class="sort-title by-gender">Filter by gender</p>
+            <div class="row radios-container">
+              <label class="form-label button-all">
+                <input class="radio-input gender" type="radio" id="byGenderAll">
+                <div class="icon-image all"></div>
+              </label>
+              <label class="form-label button-male">
+                <input class="radio-input gender" type="radio" id="byGenderMale">
+                <div class="icon-image male"></div>
+              </label>
+              <label class="form-label button-female">
+                <input class="radio-input gender" type="radio" id="byGenderFemale">
+                <div class="icon-image female"></div>
+              </label>
+            </div>
+          </div>           
           <input class="reset-button" type="submit" value="Reset">
         </form>
       </aside>

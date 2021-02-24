@@ -1,5 +1,4 @@
 let newUsers = '';
-let sortedUsers = '';
 const cardsContainer = document.querySelector('.users-container');
 const sortInput = document.querySelectorAll('.radio-input');
 document.addEventListener('DOMContentLoaded', () => {
@@ -89,32 +88,15 @@ const enableInputsToSort = (data) => {
 };
 
 function sortUsers(data, id) {
-  const sortFunctions = {
-    byAgeAscending: (a, b) => sortByAge(a, b),
-    byAgeDescending: (a, b) => sortByAge(b, a),
-    byNameAZ: (a, b) => sortByName(a, b),
-    byNameZA: (a, b) => sortByName(b, a),
-  };
-  if (sortFunctions[id]) {
-    sortedUsers = [...data].sort(sortFunctions[id]);
+  if (id === 'byAgeAscending' || id === 'byAgeDescending') {
+    data.sort((a, b) => a.dob.age - b.dob.age);
+    return id === 'byAgeAscending' ? data : data.reverse();
   }
-  return sortedUsers;
-}
-
-function sortByAge(a, b) {
-  return a.dob.age - b.dob.age;
-}
-
-function sortByName(a, b) {
-  const userA = a.name.first.toLowerCase();
-  const userB = b.name.first.toLowerCase();
-  if (userA > userB) {
-    return 1;
+  if (id === 'byNameAZ' || id === 'byNameZA') {
+    data.sort((a, b) => a.name.first.localeCompare(b.name.first));
+    return id === 'byNameAZ' ? data : data.reverse();
   }
-  if (userA < userB) {
-    return -1;
-  }
-  return 0;
+  return data;
 }
 
 function filterByGender(data, id) {
