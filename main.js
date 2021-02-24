@@ -28,7 +28,7 @@ const initApp = async () => {
   fillCardContainer(usersData);
   enableInputsToSort(usersData);
   searchByUserName(usersData);
-  resetUsers(usersData);
+  resetUsers([...usersData]);
 };
 
 function fillCardContainer(data) {
@@ -36,48 +36,42 @@ function fillCardContainer(data) {
   cardsContainer.innerHTML = '';
   data.forEach((card) => {
     userCard = createCard(card);
-    cardsContainer.appendChild(userCard);
+    cardsContainer.innerHTML += userCard;
   });
 }
 
 function createCard({ picture, name, dob, email, phone, gender, location }) {
-  const card = document.createElement('div');
-  card.className = 'user-card';
-  card.innerHTML = `
-    <div class="card-image-container">
-      <img class="card-image" src="https://picsum.photos/200/300?random=${dob.age}" alt="card-image" >
-    </div>
-    <div class="user-image-container">
-      <img class="user-image" src="${picture.large}" alt="user-image" >
-    </div>
-    <div class="col user-information">
-      <h3 class="user-name">${name.first} ${name.last}</h3>
-      <p class="user-age">${dob.age} years old</p>
-      <div class="row contact-information">
-        <a class="user-email" href="mailto:${email}">
-          <span class="material-icons">email</span>
-        </a>
-        <a class="user-phone" href="tel:${phone}">
-          <span class="material-icons">phone</span>
-        </a>
-        <a class="user-location" href="https://www.google.com.ua/maps/place/${location.city}" target="_blank">
-          <span class="material-icons">location_on</span>
-        </a>
+  const card = `
+    <div class="user-card ${gender}">
+      <div class="card-image-container">
+        <img class="card-image" src="https://picsum.photos/200/300?random=${dob.age}" alt="card-image" >
+      </div>
+      <div class="user-image-container">
+        <img class="user-image" src="${picture.large}" alt="user-image" >
+      </div>
+      <div class="col user-information">
+        <h3 class="user-name">${name.first} ${name.last}</h3>
+        <p class="user-age">${dob.age} years old</p>
+        <div class="row contact-information">
+          <a class="user-email" href="mailto:${email}">
+            <span class="material-icons">email</span>
+          </a>
+          <a class="user-phone" href="tel:${phone}">
+            <span class="material-icons">phone</span>
+          </a>
+          <a class="user-location" href="https://www.google.com.ua/maps/place/${location.city}" target="_blank">
+            <span class="material-icons">location_on</span>
+          </a>
+        </div>
       </div>
     </div>
   `;
-  setCardBackground(card, gender);
   return card;
-}
-
-function setCardBackground(card, gender) {
-  return (card.className = `user-card ${gender}`);
 }
 
 const enableInputsToSort = (data) => {
   sortInput.forEach((el) =>
     el.addEventListener('click', () => {
-      console.log(el.id);
       newUsers = sortUsers(data, el.id);
       if (el.checked && el.classList.contains('gender')) {
         newUsers = filterByGender(newUsers, el.id);
@@ -127,6 +121,7 @@ const searchByUserName = (data) => {
 const resetUsers = (data) => {
   document.querySelector('.reset-button').addEventListener('click', (e) => {
     e.preventDefault();
+    console.log(data);
     fillCardContainer(data);
   });
 };
