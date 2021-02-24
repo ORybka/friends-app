@@ -1,6 +1,6 @@
 let newUsers = '';
 const cardsContainer = document.querySelector('.users-container');
-const sortInput = document.querySelectorAll('.radio-input');
+const sortInput = document.querySelectorAll('.sorting-input');
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
 });
@@ -121,7 +121,6 @@ const searchByUserName = (data) => {
 const resetUsers = (data) => {
   document.querySelector('.reset-button').addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(data);
     fillCardContainer(data);
   });
 };
